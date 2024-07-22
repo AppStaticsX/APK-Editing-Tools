@@ -1862,7 +1862,7 @@ class APKToolGUI:
         signer_jar_filepath = "java_Packages\\APKSigner.jar"
         signer_jar_filepath_ = os.path.join(script_dir, signer_jar_filepath)
 
-        jks_filepath = "Keystore\\AppStaticsX™.keystore"
+        jks_filepath = "Keystore\\AppStaticsX.keystore"
         jks_filepath_ = os.path.join(script_dir, jks_filepath)
 
         dex_guard_jar_filepath = "java_Packages\\DexGuard.jar"
@@ -1992,7 +1992,7 @@ class APKToolGUI:
             self.sign_output_textbox.insert("end", f"Signing APK ...\n{apk_file}")
 
             if self.sign_option_dropdown.get() == "ZIPALIGN":
-                java_command = f"java -jar {signer_jar_filepath_} -a {apk_file} -o {out_dir} --ks {jks_filepath_} --ksAlias AppStaticsX --ksPass AppStaticsX@ASUS --ksKeyPass AppStaticsX@ASUS --allowResign"  
+                java_command = f"java -jar {signer_jar_filepath_} -a {apk_file} -o {out_dir} --ks {jks_filepath_} --ksAlias Apktool --ksPass apktool --ksKeyPass apktool --allowResign"  
 
                 process = subprocess.Popen(java_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                 stdout, stderr = process.communicate()
@@ -2004,7 +2004,7 @@ class APKToolGUI:
                 self.sign_output_textbox.configure(state="disabled")
 
             else:
-                java_command = f"java -jar {signer_jar_filepath_} -a {apk_file} -o {out_dir} --ks {jks_filepath_} --ksAlias AppStaticsX --ksPass AppStaticsX@ASUS --ksKeyPass AppStaticsX@ASUS -skipZipAlign --allowResign"  
+                java_command = f"java -jar {signer_jar_filepath_} -a {apk_file} -o {out_dir} --ks {jks_filepath_} --ksAlias Apktool --ksPass apktool --ksKeyPass apktool -skipZipAlign --allowResign"  
 
                 process = subprocess.Popen(java_command, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                 stdout, stderr = process.communicate()
